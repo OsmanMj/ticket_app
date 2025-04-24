@@ -1,6 +1,6 @@
 # ticket_app
 
-A new Flutter project.
+A new Flutter project. (under development)
 
 🎟️ Ticket Booking App - Flutter
 A sleek and user-friendly ticket booking mobile application built using Flutter. The app allows users to search and book flights, view upcoming trips, and reserve hotels — all in one place.
