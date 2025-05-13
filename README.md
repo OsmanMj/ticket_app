@@ -1,18 +1,18 @@
-# ticket_app
+# 🎟️ Ticket App (UI Only) - Flutter
 
-A new Flutter project. (under development)
+A sleek and user-friendly **ticket booking mobile app UI** built using Flutter.  
+This project focuses **only on the frontend (UI design)** — no backend functionality is implemented.
 
-🎟️ Ticket Booking App - Flutter
-A sleek and user-friendly ticket booking mobile application built using Flutter. The app allows users to search and book flights, view upcoming trips, and reserve hotels — all in one place.
+---
 
-🚀 Features:
-✈️ Flight ticket search and booking
+## ✨ Features (UI)
 
-🧳 View and manage upcoming trips
+- ✈️ Flight ticket search and booking interface  
+- 🧳 View and manage upcoming trips (UI mock)  
+- 🏨 Hotel reservation screen  
+- 📱 Clean and modern bottom navigation bar  
 
-🏨 Hotel reservation interface
-
-🔍 Search functionality with filters
+---
 
 ## Getting Started
 
