@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   fluentui_icons: ^1.0.0
+  barcode_widget: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,15 @@ flutter:
   assets:
      - assets/images/logo.png
      #- images/a_dot_ham.jpeg
+     - assets/images/hotel_room.png
+     - assets/images/hotel_room_1.png
+     - assets/images/pool_view.png
+     - assets/images/city_view.png
+     - assets/images/city_view_2.png
+     - assets/images/plane_sit.jpg
+     - assets/images/visa_card.png
+     - assets/images/pool_view_2.png
+     - assets/images/hotel_room_1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

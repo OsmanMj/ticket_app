@@ -1,126 +1,178 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_app/base/res/styles/app_styles.dart';
-import 'package:ticket_app/base/widgets/app_layoutbuilder_widget.dart';
-import 'package:ticket_app/base/widgets/big_dot.dart';
-//import 'package:ticket_app/base/widgets/small_dot.dart';
+import 'package:ticket_app/base/widgets/widgets.dart';
+//import 'package:ticket_app/base/utils/all_json.dart';
 
-class TicketView extends StatefulWidget {
-  const TicketView({super.key});
+class TicketView extends StatelessWidget {
+  final Map<String, dynamic> ticket;
+  final bool wholeScreen;
+  final bool? isColor;
+  const TicketView(
+      {super.key,
+      required this.ticket,
+      this.wholeScreen = false,
+      this.isColor});
 
-  @override
-  State<TicketView> createState() => _TicketViewState();
-}
-
-class _TicketViewState extends State<TicketView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      //margin: EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: SizedBox(
-        width: size.width * 0.70,
-        height: 180,
+        width: size.width * 0.72,
+        height: 156,
         child: Container(
-          margin: EdgeInsets.only(right: 13),
-          //color: Colors.red,
+          //color: Colors.yellow,
+          margin: EdgeInsets.only(right: wholeScreen == true ? 0 : 16),
           child: Column(
             children: [
+              // Top Blue Section
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: AppStyles.ticketBlue,
-                  borderRadius: BorderRadius.only(
+                  color: isColor == null
+                      ? AppStyles.ticketBlue
+                      : AppStyles.ticketColor,
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(21),
                     topRight: Radius.circular(21),
                   ),
                 ),
                 child: Column(
                   children: [
-                    // show departure and destanation with first line
                     Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "NYC",
-                          style: AppStyles.headLineStyle3
-                              .copyWith(color: Colors.white),
+                        TextStyleThird(
+                          text: ticket["from"]["code"],
+                          isColor: isColor,
                         ),
-                        Expanded(child: Container()),
-                        BigDot(),
-                        //SmallDot(),
-                        //SmallDot(),
-                        //SmallDot(),
-                        // we tow items overlap we use Stack widget
-                        // so stack widget when we have stuff into each other or on top of each other
+                        const Spacer(),
+                        BigDot(
+                          isColor: isColor,
+                        ),
                         Expanded(
-                            child: Stack(
-                          children: [
-                            SizedBox(
-                              height: 24,
-                              child: AppLayoutbuilderWidget(
-                                randomDivider: 6,
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                height: 24,
+                                child: AppLayoutbuilderWidget(randomDivider: 6),
                               ),
-                            ),
-                            Center(
-                              child: Icon(
-                                FluentSystemIcons.ic_fluent_airplane_filled,
-                                color: Colors.white,
+                              Center(
+                                child: Icon(
+                                  FluentSystemIcons.ic_fluent_airplane_filled,
+                                  color: isColor == null
+                                      ? Colors.white
+                                      : AppStyles.planeSecondColor,
+                                ),
                               ),
-                            )
-                          ],
-                        )),
-
-                        //Expanded(child: Container()),
-                        //SmallDot(),
-                        //SmallDot(),
-                        //SmallDot(),
-                        BigDot(),
-                        Expanded(child: Container()),
-                        //  Icon(
-                        //  FluentSystemIcons.ic_fluent_airplane_regular,
-                        // color: Colors.white,
-                        //),
-                        Text(
-                          "LDN",
-                          style: AppStyles.headLineStyle3
-                              .copyWith(color: Colors.white),
+                            ],
+                          ),
+                        ),
+                        BigDot(
+                          isColor: isColor,
+                        ),
+                        const Spacer(),
+                        TextStyleThird(
+                          text: ticket["to"]["code"],
+                          isColor: isColor,
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 3,
-                    ),
+                    const SizedBox(height: 1),
                     Row(
                       children: [
-                        Text(
-                          "New-York",
-                          style: AppStyles.headLineStyle3
-                              .copyWith(color: Colors.white),
+                        SizedBox(
+                          width: 100,
+                          child: TextStyleFourth(
+                            text: ticket["from"]["name"],
+                            isColor: isColor,
+                          ),
                         ),
-                        Expanded(child: Container()),
-                        Text(
-                          "8H 45M",
-                          style: AppStyles.headLineStyle3
-                              .copyWith(color: Colors.white),
+                        const Spacer(),
+                        TextStyleFourth(
+                          text: ticket["flying_time"],
+                          isColor: isColor,
                         ),
-                        Expanded(child: Container()),
-                        Text(
-                          "London",
-                          style: AppStyles.headLineStyle3
-                              .copyWith(color: Colors.white),
-                        )
+                        const Spacer(),
+                        SizedBox(
+                          width: 100,
+                          child: TextStyleFourth(
+                            text: ticket["to"]["name"],
+                            isColor: isColor,
+                            align: TextAlign.end,
+                          ),
+                        ),
                       ],
                     ),
+                  ],
+                ),
+              ),
 
-                    Container(
-                      decoration: BoxDecoration(
-                        color: AppStyles.ticketBlue,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(21),
-                          topRight: Radius.circular(21),
-                        ),
+              // Middle Orange Divider Section
+              Container(
+                color: isColor == null
+                    ? AppStyles.planeColor
+                    : AppStyles.ticketColor,
+                child: Row(
+                  children: [
+                    BigCircle(
+                      isRight: false,
+                      isColor: isColor,
+                    ),
+                    Expanded(
+                      child: AppLayoutbuilderWidget(
+                        randomDivider: 16,
+                        width: 8,
+                        isColor: isColor,
                       ),
+                    ),
+                    BigCircle(
+                      isRight: true,
+                      isColor: isColor,
+                    ),
+                  ],
+                ),
+              ),
+
+              // Bottom Orange Section
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: isColor == null
+                      ? AppStyles.planeColor
+                      : AppStyles.ticketColor,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(isColor == null ? 21 : 0),
+                    bottomRight: Radius.circular(isColor == null ? 21 : 0),
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AppColoumTextLayout(
+                          TopText: ticket["date"],
+                          bottomText: "DATE",
+                          alignment: CrossAxisAlignment.start,
+                          isColor: isColor,
+                        ),
+                        AppColoumTextLayout(
+                          TopText: ticket["departure_time"],
+                          bottomText: "Departure Time",
+                          alignment: CrossAxisAlignment.center,
+                          isColor: isColor,
+                        ),
+                        AppColoumTextLayout(
+                          TopText: ticket["number"].toString(),
+                          bottomText: "Number",
+                          alignment: CrossAxisAlignment.end,
+                          isColor: isColor,
+                        ),
+                      ],
                     ),
                   ],
                 ),
