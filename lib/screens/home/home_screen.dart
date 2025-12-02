@@ -19,8 +19,8 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          SizedBox(
-            height: 40,
+          const SizedBox(
+            height: 20,
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20),
@@ -53,40 +53,47 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 20,
+                const SizedBox(
+                  height: 15,
                 ),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xFFF4F6FD),
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.white,
+                    boxShadow: AppStyles.softShadow,
                   ),
                   child: Row(
-                    //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         FluentSystemIcons.ic_fluent_search_regular,
-                        color: Color(0xFFBFC205),
+                        color: AppStyles.accentColor,
+                        size: 22,
                       ),
-                      Text("Search")
+                      const SizedBox(width: 12),
+                      Text(
+                        "Search",
+                        style: AppStyles.textStyle.copyWith(
+                          color: Colors.grey.shade500,
+                        ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(
-            height: 40,
+          const SizedBox(
+            height: 20,
           ),
           AppDoubleText(
             bigText: 'Upcoming Flights',
             smallText: 'View all',
             func: () => Navigator.pushNamed(context, "/all_tickets"),
           ),
-          SizedBox(
-            height: 22,
+          const SizedBox(
+            height: 15,
           ),
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -94,16 +101,16 @@ class HomeScreen extends StatelessWidget {
                   children: ticketList
                       .map((singleTicket) => TicketView(ticket: singleTicket))
                       .toList())),
-          SizedBox(
-            height: 40,
+          const SizedBox(
+            height: 20,
           ),
           AppDoubleText(
             bigText: 'Hotels',
             smallText: 'View all',
             func: () => Navigator.pushNamed(context, "/all_hotels"),
           ),
-          SizedBox(
-            height: 20,
+          const SizedBox(
+            height: 15,
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,

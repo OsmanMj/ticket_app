@@ -9,13 +9,18 @@ class FindTickets extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppStyles.findTickColor,
+        gradient: AppStyles.searchGradient,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: AppStyles.softShadow,
       ),
       child: Center(
           child: Text(
         "find Tickets",
-        style: AppStyles.headLineStyle3.copyWith(color: AppStyles.ticketColor),
+        style: AppStyles.textStyle.copyWith(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+        ),
       )),
     );
   }

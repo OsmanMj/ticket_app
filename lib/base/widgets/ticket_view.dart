@@ -23,23 +23,22 @@ class TicketView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: SizedBox(
         width: size.width * 0.72,
-        height: 156,
         child: Container(
           //color: Colors.yellow,
           margin: EdgeInsets.only(right: wholeScreen == true ? 0 : 16),
           child: Column(
             children: [
-              // Top Blue Section
+              // Top Blue Section with Gradient
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: isColor == null
-                      ? AppStyles.ticketBlue
-                      : AppStyles.ticketColor,
+                  gradient: isColor == null ? AppStyles.ticketGradient : null,
+                  color: isColor == null ? null : AppStyles.ticketColor,
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(21),
-                    topRight: Radius.circular(21),
+                    topLeft: Radius.circular(24),
+                    topRight: Radius.circular(24),
                   ),
+                  boxShadow: isColor == null ? AppStyles.softShadow : null,
                 ),
                 child: Column(
                   children: [
@@ -113,9 +112,10 @@ class TicketView extends StatelessWidget {
 
               // Middle Orange Divider Section
               Container(
-                color: isColor == null
-                    ? AppStyles.planeColor
-                    : AppStyles.ticketColor,
+                decoration: BoxDecoration(
+                  gradient: isColor == null ? AppStyles.orangeGradient : null,
+                  color: isColor == null ? null : AppStyles.ticketColor,
+                ),
                 child: Row(
                   children: [
                     BigCircle(
@@ -137,16 +137,15 @@ class TicketView extends StatelessWidget {
                 ),
               ),
 
-              // Bottom Orange Section
+              // Bottom Orange Section with Gradient
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: isColor == null
-                      ? AppStyles.planeColor
-                      : AppStyles.ticketColor,
+                  gradient: isColor == null ? AppStyles.orangeGradient : null,
+                  color: isColor == null ? null : AppStyles.ticketColor,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(isColor == null ? 21 : 0),
-                    bottomRight: Radius.circular(isColor == null ? 21 : 0),
+                    bottomLeft: Radius.circular(isColor == null ? 24 : 0),
+                    bottomRight: Radius.circular(isColor == null ? 24 : 0),
                   ),
                 ),
                 child: Column(

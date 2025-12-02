@@ -8,54 +8,118 @@ class Hotel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(7.0),
-      margin: const EdgeInsets.only(right: 16.0), // Space between cards
-      width: 200, // Fixed width for card
-      height: 350,
+      margin: const EdgeInsets.only(right: 16.0),
+      width: 200,
       decoration: BoxDecoration(
-        color: AppStyles.priamryColor,
-        borderRadius: BorderRadius.circular(17),
+        gradient: AppStyles.hotelCardGradient,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: AppStyles.cardShadow,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Image with overlay gradient
           Container(
-            height: 180,
+            height: 170,
             decoration: BoxDecoration(
-              color: AppStyles.priamryColor,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(24),
+                topRight: Radius.circular(24),
+              ),
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/${hotel["image"]}"),
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              hotel['place'],
-              style:
-                  AppStyles.headLineStyle1.copyWith(color: AppStyles.kakiColor),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(24),
+                  topRight: Radius.circular(24),
+                ),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withOpacity(0.3),
+                  ],
+                ),
+              ),
             ),
           ),
-          const SizedBox(height: 5),
+          // Hotel details
           Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              hotel['destination'],
-              style: AppStyles.headLineStyle3.copyWith(color: Colors.white),
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  hotel['place'],
+                  style: AppStyles.headLineStyle2.copyWith(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      size: 14,
+                      color: Colors.white.withOpacity(0.9),
+                    ),
+                    const SizedBox(width: 4),
+                    Expanded(
+                      child: Text(
+                        hotel['destination'],
+                        style: AppStyles.headLineStyle4.copyWith(
+                          color: Colors.white.withOpacity(0.9),
+                          fontSize: 12,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "\$${hotel['price']}",
+                        style: AppStyles.headLineStyle1.copyWith(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Text(
+                        "/night",
+                        style: AppStyles.headLineStyle4.copyWith(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 11,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 5),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              "\$${hotel['price']}/night",
-              style:
-                  AppStyles.headLineStyle1.copyWith(color: AppStyles.kakiColor),
-            ),
-          )
         ],
       ),
     );

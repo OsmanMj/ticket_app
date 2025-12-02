@@ -41,14 +41,31 @@ class AppTabs extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 7),
+      padding: EdgeInsets.symmetric(vertical: 9),
       width: size.width * .44,
       decoration: BoxDecoration(
           color: tabColor == false ? Colors.white : Colors.transparent,
           borderRadius: tabbBorder == false
               ? BorderRadius.horizontal(left: Radius.circular(50))
-              : BorderRadius.horizontal(right: Radius.circular(50))),
-      child: Center(child: Text(tabText)),
+              : BorderRadius.horizontal(right: Radius.circular(50)),
+          boxShadow: tabColor == false
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ]
+              : null),
+      child: Center(
+        child: Text(
+          tabText,
+          style: TextStyle(
+            fontWeight: tabColor == false ? FontWeight.w600 : FontWeight.w500,
+            color: tabColor == false ? Colors.black87 : Colors.grey.shade600,
+          ),
+        ),
+      ),
     );
   }
 }

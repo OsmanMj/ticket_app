@@ -42,37 +42,28 @@ class _TicketScreenState extends State<TicketScreen> {
       body: Stack(
         children: [
           ListView(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
             children: [
-              //SizedBox(
-              // height: 40,
-              // ),
-              //Text(
-              //"Tickets",
-              //style: AppStyles.headLineStyle1,
-              //),
-              // SizedBox(
-              // height: 25,
-              //),
               AppTicketTabs(
                 firstText: "Upcoming",
                 SecondText: "Previous",
               ),
-              SizedBox(
-                height: 20,
+              const SizedBox(
+                height: 15,
               ),
               Container(
-                  padding: EdgeInsets.only(left: 16),
+                  padding: const EdgeInsets.only(left: 16),
                   child: TicketView(
                     ticket: ticketList[ticketIndex],
                     isColor: true,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 1,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 46),
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+                margin: const EdgeInsets.symmetric(horizontal: 46),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 color: AppStyles.ticketColor,
                 child: Column(
                   children: [
@@ -93,16 +84,16 @@ class _TicketScreenState extends State<TicketScreen> {
                         )
                       ],
                     ),
-                    SizedBox(
-                      height: 20,
+                    const SizedBox(
+                      height: 15,
                     ),
                     AppLayoutbuilderWidget(
                       randomDivider: 15,
                       width: 5,
                       isColor: false,
                     ),
-                    SizedBox(
-                      height: 20,
+                    const SizedBox(
+                      height: 15,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,16 +112,16 @@ class _TicketScreenState extends State<TicketScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 20,
+                    const SizedBox(
+                      height: 15,
                     ),
                     AppLayoutbuilderWidget(
                       randomDivider: 15,
                       width: 5,
                       isColor: false,
                     ),
-                    SizedBox(
-                      height: 10,
+                    const SizedBox(
+                      height: 8,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -149,7 +140,7 @@ class _TicketScreenState extends State<TicketScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 5,
                             ),
                             Text(
@@ -169,20 +160,20 @@ class _TicketScreenState extends State<TicketScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 1,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 46),
-                padding: EdgeInsets.symmetric(vertical: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 46),
+                padding: const EdgeInsets.symmetric(vertical: 15),
                 decoration: BoxDecoration(
                   color: AppStyles.ticketColor,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(21),
                       bottomRight: Radius.circular(21)),
                 ),
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(15),
                       child: BarcodeWidget(
@@ -194,11 +185,11 @@ class _TicketScreenState extends State<TicketScreen> {
                           barcode: Barcode.code128())),
                 ),
               ),
-              SizedBox(
-                height: 20,
+              const SizedBox(
+                height: 15,
               ),
               Container(
-                  padding: EdgeInsets.only(left: 16),
+                  padding: const EdgeInsets.only(left: 16),
                   child: TicketView(
                     ticket: ticketList[ticketIndex],
                   ))

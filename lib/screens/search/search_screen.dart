@@ -14,8 +14,15 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppStyles.bgColor,
       appBar: AppBar(
-        title: Center(child: Text("Search Page")),
+        title: Text(
+          "Search Page",
+          style: AppStyles.headLineStyle2.copyWith(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
         backgroundColor: AppStyles.dotColor,
+        elevation: 0,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
