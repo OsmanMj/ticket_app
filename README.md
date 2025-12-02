@@ -1,5 +1,27 @@
+<div align="center">
 
-# 🎟️ TICKET APP
+# 🎟️ TICKET_APP
+
+### Book Flights & Hotels Seamlessly
+
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
+
+<br>
+
+**Built with the tools and technologies:**
+
+![JSON](https://img.shields.io/badge/json-5E5C5C?style=flat-square&logo=json&logoColor=white)
+![Markdown](https://img.shields.io/badge/markdown-000000?style=flat-square&logo=markdown&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=flat-square&logo=dart&logoColor=white)
+![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=flat-square&logo=kotlin&logoColor=white)
+![Swift](https://img.shields.io/badge/swift-F05138?style=flat-square&logo=swift&logoColor=white)
+
+</div>
+
+---
 
 A modern, sleek ticket booking mobile application built with Flutter. Book flights, manage trips, and reserve hotels — all in one beautiful, responsive interface.
 
